@@ -13,7 +13,13 @@
                 <td><%= article.id%></td>
                 <td><%= article.header%></td>
                 <td><%= article.body%></td>
+
+                <td><%= link_to 'Edit', edit_article_path(article)%></td>
+                <td><%= link_to 'Show', show_article_path(article) %></td>
             </tr>
+
         <% end %>
     </tbody>
 </table>
+
+<%= link_to 'New Article', new_article_path %>

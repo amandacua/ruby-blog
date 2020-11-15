@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
-    
+        @article = BlogArticle.find(params[:id])
     end
 
     def new
@@ -17,27 +17,36 @@ class ArticlesController < ApplicationController
         @article = BlogArticle.new(article_params)
         
         if @article.save
-            redirect_to article_path
+            redirect_to articles_path
         else
             render :new
         end
     end
 
     def edit
-    
+        @article = BlogArticle.find(params[:id])
     end
 
     def update
+        @article = BlogArticle.find(params[:id])
+
+        if @article.update(article_params)
+            redirect_to articles_path
+        else
+            render :edit
+        end
     
     end
 
     def delete 
-
+        @article = BlogArticle.find(params[:id])
+        @article.delete
+        redirect_to articles_path
     end
 
     private
     
     def article_params
-        params.require(:article).permit(:title, :body)
+        params.require(:article).permit(:header, :body)
     end
 end
