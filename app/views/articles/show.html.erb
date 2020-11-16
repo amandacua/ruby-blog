@@ -1,12 +1,17 @@
-<p>
-    <strong>Title:</strong>
-    <%= @article.header %>
-</p>
+<div class = "columns mt-6 is-centered" style = "padding: 100px;">
+  <div class = "column">
+    <p class = "is-size-2 has-text-weight-bold mb-3">
+        <%= @article.header%>
+    </p>
 
-<p>
-    <strong> Text: </strong>
-    <%= @article.body%>
-</p>
+    <p>
+        <%= @article.body%>
+    </p>
 
-<%= link_to 'Edit', edit_article_path(@article), method: :edit %>
-<%= link_to 'Back to Articles', articles_path%>
+    <p style = "margin-top: 50px;">
+        <%= link_to 'Edit', edit_article_path(@article), method: :edit, class: 'button is-gray' %>
+        <%= link_to 'Back to Articles', articles_path, class: 'button is-gray'%>
+    </p>
+
+  </div>
+</div>
