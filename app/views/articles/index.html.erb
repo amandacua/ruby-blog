@@ -1,26 +1,25 @@
-<table>
-    <thead>
-        <tr>
-            <th> ID </th>
-            <th> Title </th>
-            <th> Body </th>
-            <th colspan="3"></th>
-        </tr>
-     </thead>
+<div class = "columns mt-6 is-centered">
+    <% @articles.each do |entry|%>
+        <div class = "colum is-one-quarter">
+            <div class = "card"> 
+                <header class = "class-header">
+                <p class = "card-header-title"> <%= entry.header %> </p>
+                </header>
 
-     <tbody>
-        <% @articles.each do |article| %>
-            <tr>
-                <td><%= article.id%></td>
-                <td><%= article.header%></td>
-                <td><%= article.body%></td>
-
-                <td><%= link_to 'Edit', edit_article_path(article)%></td>
-                <td><%= link_to 'Show', show_article_path(article) %></td>
-            </tr>
-
-        <% end %>
-    </tbody>
-</table>
-
-<%= link_to 'New Article', new_article_path %>
+                <div class = "card-content">
+                    <div class = "content">
+                        <p><%= entry.id %></p>
+                        <p><%= entry.body%></p>
+                        <p class = "itallic">Logged <%= time_ago_in_words(entry.created_at)%> ago </p>
+                    </div>
+                </div> 
+                
+                <div class = "card-footer" >
+                            <%= link_to 'Show', show_article_path(entry), class: 'card-footer-item' %>
+                            <%= link_to 'Edit', edit_article_path(entry), class: 'card-footer-item' %>
+                            <%= link_to 'Destroy', delete_article_path(entry), method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
+                </div>               
+            </div>
+        </div>
+    <% end %>
+</div>
