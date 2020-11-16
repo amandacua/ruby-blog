@@ -24,11 +24,11 @@
                 <%= f.label :body %> </br>
                 <%= f.text_area :body, class: "input", style: "margin: 0px; width:583.6px; height: 300px;" %>
             </p>
+            
             <p>
                 <%= f.submit  class: "button is-gray"%>
                 <%= link_to 'Back', articles_path,  class: "button is-gray mb-2" %>
                 <%= link_to 'Delete', delete_article_path(@article), method: :delete, data: { confirm: 'Are you sure?' },  class: "button is-gray" %>
-
             </p>
         <% end %>
         
