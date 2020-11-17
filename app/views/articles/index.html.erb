@@ -9,6 +9,11 @@
                 <div class = "card-content">
                     <div class = "content">
                         <p><%="Article Number #{entry.id}" %></p>
+                        <% if entry.avatar.attached? %>
+                            <p>
+                                <img src= "<%=(url_for(entry.avatar))%>">
+                            </p>
+                        <% end %>
                         <p><%= entry.body%></p>
                         <p class = "itallic">Created At:<%= time_ago_in_words(entry.created_at)%> ago </p>
                     </div>

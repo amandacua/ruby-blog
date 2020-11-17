@@ -4,6 +4,7 @@ class CreateBlogArticles < ActiveRecord::Migration[6.0]
           t.string :author
           t.string :header
           t.string :body
+          t.string :avatar
       t.timestamps
     end
   end
