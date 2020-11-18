@@ -1,0 +1,63 @@
+<div class = "columns is-centered mt-6">
+    <div class = "column is-one-third">
+        <h1 class = "is-size-2 has-text-weight-bold mb-3"> Log In </h1>
+
+        <%= form_with scope: :user, url: user_path, local: true do |f| %>
+
+            <p class = 'field'> 
+
+                <%= f.label 'Username' %>
+                <%= f.text_field :name, class: "input", :placeholder => 'username', :value => nil%>
+            </p>
+
+            <p class = 'field'>
+                <%= f.label 'Password' %> </br>
+                <%= f.text_field :password_digest, class: "input", :placeholder => 'password'%>
+            </p>
+
+            <p>
+                <%= f.submit class: "button is-gray" %>
+            </p>
+        <% end %>
+    </div>
+    
+    <div class = "column is-one-third">
+        <h1 class = "is-size-2 has-text-weight-bold mb-3">Create an Account</h1>
+
+        <%= form_with scope: :user, url: user_path, local: true do |f| %>
+
+            <p class = 'field'> 
+
+                <%= f.label 'Username' %>
+                <%= f.text_field :name, class: "input", :placeholder => 'username', :value => nil%>
+            </p>
+
+            <p class = 'field'>
+                <%= f.label :email %> </br>
+                <%= f.text_field :email, class: "input", :placeholder => 'email' %>
+            </p>
+
+            <p class = 'field'>
+                <%= f.label 'Phone Number' %> </br>
+                <%= f.text_field :phone, class: "input", :placeholder => 'phone number' %>
+            </p>
+
+            <p class = 'field'>
+                <%= f.label 'Password' %> </br>
+                <%= f.text_field :password_digest, class: "input", :placeholder => 'password'%>
+            </p>
+            
+            <p class = 'field'>
+                <%= f.label 'Add Photo' %> </br>
+                <%= f.file_field :avatar %>
+            </p>
+
+
+
+            <p>
+                <%= f.submit class: "button is-gray" %>
+                <%= link_to 'Back', articles_path, class: "button is-gray mb-2" %>
+            </p>
+        <% end %>
+    </div>
+</div>
